@@ -11,14 +11,18 @@
     <button type="button" id="btnUpload">Enviar</button>
     <br>
     <br>
-    <textarea id="resultText"  placeholder="Seu arquivo PDF será exibido aqui..." cols="50" rows="10"></textarea>
+    <input type="text" id="resultText" value="" class="field left" placeholder="Seu arquivo PDF será exibido aqui..." cols="50" rows="10" readonly>
+    <br>
+    <br>
+
     <script>
         const inputFile = document.getElementById("inputFile");
         const btnUpload = document.getElementById("btnUpload");
         const resultText = document.getElementById("resultText");
 
+
         btnUpload.addEventListener("click", () => {
-            const formData = new formData();
+            const formData = new FormData();
 
             formData.append("pdfFile", inputFile.files[0]);
 
@@ -28,9 +32,11 @@
             }).then(response => {
                 return response.text();
             }).then(extractedText => {
-                resultText.value = extractedText;
+                resultText.value = extractedText.trim();
+                teste.value = resultText.value;
             });
         });
+
     </script>
 </body>
 </html>
