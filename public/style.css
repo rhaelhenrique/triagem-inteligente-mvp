@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* início adaptações */
+
+@media(max-width: 700px){
+    html{
+        font-size: 14px;
+    }
+   }
+
+/* Fim adaptações */
+
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 15px;
+    background-color: #fafafa;
+    color: #555;
+}
+
+h1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+}
+
+h2, h3, h4, h5, h6, p, ul, li, span {
+    font-family: 'Roboto', sans-serif;
+}
+
+.top {
+    width: 80%;
+    height: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 300px;
+    height: 77px;
+}
