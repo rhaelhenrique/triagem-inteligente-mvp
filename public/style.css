@@ -46,5 +46,72 @@ h2, h3, h4, h5, h6, p, ul, li, span {
 }
 
 .top img{
-    height: 100px;
+    height: 130px;
+}
+
+.resumo {
+    width: 100%;
+    height: auto;
+    background-color: #ebebeb;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+}
+
+.bloco1 {
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+}
+
+.bloco2 {
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+.principal {
+    width: 80%;
+    max-height: 35rem;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+#resultText {
+    height: 23rem;
+    width: 80%;
+    border: 0.15rem solid rgba(000, 000, 000, 0.7);
+    border-radius: 0.5rem;
+    background-color: transparent;
+    font-size: 1rem;
+    font-family: Verdana, sans-serif;
+    transition: 300ms;
+}
+
+#resultText:active {
+    border: 0.15rem solid;
+    border-color: teal;
+    background-color: #d1eefa96;
+    outline: none;
+    transition: 300ms;
+}
+
+#resultText:focus {
+    border: 0.15rem solid;
+    border-color: teal;
+    background-color: #d1eefa96;
+    outline: none;
+    transition: 300ms;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
 }
