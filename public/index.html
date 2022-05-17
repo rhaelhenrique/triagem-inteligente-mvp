@@ -8,6 +8,7 @@
     <title>Triagem Int. - Sprint 8</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body>
@@ -17,19 +18,63 @@
 
     <div class="resumo">
         <div class="bloco1">
-            <h2>P</h2>
+            <h2>Análise rápida de uma petição inicial</h2>
         </div>
         <div class="bloco2">
-            <h3>Selecione um arquivo PDF para fazer a captura das informações.</h3>
+            <h4>Selecione um arquivo PDF para fazer a captura das informações</h4>
         </div>
     </div>
 
     <div class="principal">
-        <input type="file" id="inputFile">
-        <button type="button" id="btnUpload">Enviar</button>
+
+        <div class="select">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary" id="btnUpload" type="button">Enviar</button>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputFile">
+                  <label class="custom-file-label" for="inputFile">Arquivo PDF</label>
+                </div>
+              </div>
+        </div>
+        
+        <div class="tableResult">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Campo</th>
+                    <th scope="col">Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Autor</td>
+                    <td>TESTE</td>
+                  </tr>
+                  <tr>
+                    <td>Justiça Gratuita</td>
+                    <td>TESTE</td>
+                  </tr>
+                  <tr>
+                    <td>Valor da Causa</td>
+                    <td>TESTE</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <h4>Texto para Consulta:</h4>
         <textarea id="resultText" value=" " class="field left" placeholder="Seu arquivo PDF será exibido aqui..." cols="50" rows="10" readonly></textarea>
+
     </div>
 
+    <div class="footer">
+        <div class="footerText">
+            <h1>Projeto Residência - JFPE/TRF5-IMD</h1>
+            <p>Triagem Inteligente - Sprint 8</p>
+        </div>
+    </div>
 
     <script>
         const inputFile = document.getElementById("inputFile");
@@ -49,7 +94,19 @@
                 return response.text();
             }).then(extractedText => {
                 resultText.value = extractedText.trim();
-                teste.value = resultText.value;
+
+                let str = extractedText.trim()
+                let regex_autor = new RegExp("(.*), brasileir")
+                let regex_justicaGrat = new RegExp("justiça gratuita|gratuidade")
+                let regex_valorCausa = new RegExp("[à|a]\s+causa\s+o\s+valor\s+de\s+(R$.+,\d{2})")
+
+                console.log(str)
+                let autores = str.match(regex_autor)
+                console.log(autores[1]);
+                let justGrat = str.match(regex_justicaGrat)
+                justGrat ? console.log("Sim"):console.log("Não")
+                let valores = str.match(regex_valorCausa)
+                console.log(valores);
             });
         });
 
