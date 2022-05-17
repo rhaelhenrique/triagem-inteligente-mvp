@@ -18,10 +18,10 @@
 
     <div class="resumo">
         <div class="bloco1">
-            <h2>Análise rápida de uma petição inicial</h2>
+            <h3>Análise rápida de uma petição inicial</h3>
         </div>
         <div class="bloco2">
-            <h4>Selecione um arquivo PDF para fazer a captura das informações</h4>
+            <h5>Selecione um arquivo PDF para fazer a captura das informações</h5>
         </div>
     </div>
 
@@ -41,24 +41,18 @@
         
         <div class="tableResult">
             <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Campo</th>
-                    <th scope="col">Valor</th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr>
-                    <td>Autor</td>
-                    <td>TESTE</td>
+                    <th scope="col">Autor:</th>
+                    <td id="autor"></td>
                   </tr>
                   <tr>
-                    <td>Justiça Gratuita</td>
-                    <td>TESTE</td>
+                    <th scope="col">Justiça Gratuita:</th>
+                    <td id="gratuita"></td>
                   </tr>
                   <tr>
-                    <td>Valor da Causa</td>
-                    <td>TESTE</td>
+                    <th scope="col">Valor da Causa:</th>
+                    <td id="valor"></td>
                   </tr>
                 </tbody>
               </table>
@@ -81,7 +75,6 @@
         const btnUpload = document.getElementById("btnUpload");
         const resultText = document.getElementById("resultText");
 
-
         btnUpload.addEventListener("click", () => {
             const formData = new FormData();
 
@@ -102,11 +95,20 @@
 
                 console.log(str)
                 let autores = str.match(regex_autor)
-                console.log(autores[1]);
+                //console.log = (autores[1]);
+                let autorResult = (autores[1]); //passando o valor com innerHTML
+
                 let justGrat = str.match(regex_justicaGrat)
-                justGrat ? console.log("Sim"):console.log("Não")
+                //justGrat ? console.log("Sim"):console.log("Não")
+                justGrat ? gratuitaResult="Sim" : gratuitaResult="Não"
+
                 let valores = str.match(regex_valorCausa)
-                console.log(valores);
+                //console.log(valores);
+                let valorResult = (valores);
+
+                document.getElementById("autor").innerHTML = autorResult;
+                document.getElementById("gratuita").innerHTML = gratuitaResult;
+                document.getElementById("valor").innerHTML = valorResult;
             });
         });
 
