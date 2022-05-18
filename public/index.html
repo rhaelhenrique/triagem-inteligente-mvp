@@ -90,9 +90,9 @@
                 resultText.value = extractedText.trim();
 
                 let str = extractedText.trim()
-                let regex_autor = new RegExp("(.*), brasileir")
+                let regex_autor = new RegExp("(.*),.*brasileir")
                 let regex_justicaGrat = new RegExp("justiça gratuita|gratuidade")
-                let regex_valorCausa = new RegExp("[à|a]\s+causa\s+o\s+valor\s+de\s+(R$.+,\d{2})")
+                let regex_valorCausa = new RegExp("Dá[-se| ].*[à|a].*causa.*o.*valor.*de.*(R\\$.+,\\d{2})")
 
                 console.log(str)
                 let autores = str.match(regex_autor)
@@ -105,7 +105,7 @@
 
                 let valores = str.match(regex_valorCausa)
                 //console.log(valores);
-                let valorResult = (valores);
+                let valorResult = (valores[1]);
 
                 document.getElementById("autor").innerHTML = autorResult;
                 document.getElementById("gratuita").innerHTML = gratuitaResult;
