@@ -22,6 +22,11 @@ html {
     color: #555;
 }
 
+.linkData {
+    text-decoration: none !important;
+    color: #555;
+}
+
 h1 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.5rem;
@@ -100,6 +105,7 @@ h2, h3, h4, h5, h6, p, ul, li, span {
     transition: 300ms;
     padding-top: 2rem;
     padding-left: 2rem;
+    margin-bottom: 2rem;
 }
 
 #resultText:active {
@@ -111,6 +117,37 @@ h2, h3, h4, h5, h6, p, ul, li, span {
 }
 
 #resultText:focus {
+    border: 0.15rem solid;
+    border-color: teal;
+    background-color: #d1eefa96;
+    outline: none;
+    transition: 300ms;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+}
+
+#resultTextIMG {
+    height: 23rem;
+    width: 80%;
+    border: 0.15rem solid rgba(000, 000, 000, 0.7);
+    border-radius: 0.5rem;
+    background-color: transparent;
+    font-size: 1rem;
+    font-family: Verdana, sans-serif;
+    transition: 300ms;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+#resultTextIMG:active {
+    border: 0.15rem solid;
+    border-color: teal;
+    background-color: #d1eefa96;
+    outline: none;
+    transition: 300ms;
+}
+
+#resultTextIMG:focus {
     border: 0.15rem solid;
     border-color: teal;
     background-color: #d1eefa96;
@@ -131,6 +168,20 @@ h2, h3, h4, h5, h6, p, ul, li, span {
 
 .table {
     font-size: 1.4rem;
+}
+
+.tdTable {
+    font-weight: 500;
+}
+
+#salvarForm {
+    margin-bottom: 1.5rem;
+}
+
+.list-group {
+    margin-top: 1.5rem;
+    width: 80%;
+    font-size: 1rem;
 }
 
 .footer {
