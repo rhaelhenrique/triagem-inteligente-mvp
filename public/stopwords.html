@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Triagem Int. - Sprint 11</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">
+      <img class="logo"
+        src="img/logo-triagem-inteligente-v01.png"
+        alt="Logo Triagem Inteligente"/>
+    </a>
+    <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="/triagem">Triagem</a></li>
+        <li><a href="/stopwords" class="linkAtivo">Stopwords</a></li>
+    </ul>
+  </nav>
+
+  <main>Está em Stopwords</main>
+
+  <div class="container">
+
+    <div class="principal">
+
+      <div class="bloco1">
+        <h4>Escolha uma Petição Inicial para carregar:</h4>
+      </div>
+      
+      <div class="select">
+        <h5>Selecione um arquivo PDF</h5>
+        <div class="input-group mb-3">
+          <button class="btn btn-outline-secondary" type="button" id="btnUpload">1 - Carregar</button>
+          <button class="btn btn-outline-secondary" type="button" id="salvarForm">2 - Salvar</button>
+          <input type="file" class="form-control" id="inputFile" aria-describedby="inputFile" aria-label="Upload">
+        </div>
+      </div>
+
+      <div class="textInsert">
+        <h5>Cole o texto da Petição Inicial</h5>
+        <textarea
+          id="insertText"
+          value=" "
+          class="field left"
+          placeholder="Cole aqui o texto de sua petição inicial..."
+          cols="50"
+          rows="10">
+        </textarea>
+      </div>
+
+      <h5>Texto para Consulta:</h5>
+      <textarea
+        id="resultText"
+        value=" "
+        class="field left"
+        placeholder="Seu arquivo PDF será exibido aqui..."
+        cols="50"
+        rows="10"
+        readonly
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footerText">
+      <h1>Sprint 11</h1>
+    </div>
+    <div class="footerText2">
+      <h5>Projeto Residência - JFPE</h5>
+    </div>
+  </div>
+</body>
+</html>
+
+<script src="javascript.js"></script>
