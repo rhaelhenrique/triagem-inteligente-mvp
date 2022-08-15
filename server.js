@@ -23,7 +23,6 @@ app.post("/extract-text", (req, res) =>{
         res.send(result.text);
     });
 });
-
 //service
 const PORT = 3000 || process.env.PORT;
 app.listen(PORT, () => console.log(`Server ok! Usando a porta: ${PORT}`));
