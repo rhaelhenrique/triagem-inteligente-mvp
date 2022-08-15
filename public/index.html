@@ -14,6 +14,7 @@
 </head>
 <body>
 
+
   <nav>
     <a href="index.html">
       <img class="logo"
@@ -28,16 +29,59 @@
   </nav>
 
   <div class="container">
-
     <div class="principal">
-
-      <div class="bloco1">
-        <h4>Escolha uma Petição Inicial para carregar:</h4>
-      </div>
+      <!--TODO-->
+      <h4>Escolha uma Petição Inicial para carregar:</h4>
+    
+      <!-- Escolha de como será o tipo de entrada-->
+      <form action="#" id="radio-choice">
+        <input type="radio" id="radio-txt" name="radio-input" value="radio-txt">
+        <label for="radio-txt">Texto</label>
+        <input type="radio" id="radio-pdf" name="radio-input" value="radio-pdf">
+        <label for="radio-pdf">PDF</label><br>
+      </form>
       
-      <div class="select">
-        <h5>Selecione um arquivo PDF</h5>
+      <!-- Adicionar petição via PDF-->
+      <div class="type-input" id="pdf-input">
+        <h5>Selecione um arquivo PDF:</h5>
         <div class="input-group mb-3">
+<<<<<<< HEAD
+          <input type="file" class="form-control" id="input-file" aria-describedby="inputFile" aria-label="Upload">
+        </div>
+      </div>
+      <!-- Adicionar petição via texto-->
+      <div class="type-input" id="txt-input">
+        <h5>Cole o texto da Petição Inicial:</h5>
+        <textarea
+          id="insert-text"
+          class="field left"
+          placeholder="Cole aqui o texto de sua petição inicial..."
+          cols="60"
+          rows="10"
+          ></textarea>
+      </div>
+
+      <!--Texto lido do PDF-->
+      <div id="result-input">
+        <h5>Texto para Consulta:</h5>
+        <textarea id="result-text"
+          class="field left" 
+          placeholder="Seu arquivo PDF será exibido aqui..."
+          cols="50" rows="10" readonly
+        ></textarea>
+      </div>
+     
+      <!-- Resultos obtidos dos textos-->
+      <div id="container-button">
+        <div id="div-load">
+          <button class="btn btn-outline-secondary" type="button" id="btn-load-pdf">Carregar PDF</button>
+          <button class="btn btn-outline-secondary" type="button" id="btn-load-txt">Carregar Texto</button>
+        </div>   
+        <div id="div-save">
+          <button class="btn btn-outline-secondary" type="button" id="btn-save">Salvar</button>
+        </div> 
+      </div>    
+=======
           <button class="btn btn-outline-secondary" type="button" id="btnUpload">1 - Carregar</button>
           <button class="btn btn-outline-secondary" type="button" id="salvarPDF">2 - Salvar</button>
           <input type="file" class="form-control" id="inputFile" aria-describedby="inputFile" aria-label="Upload">
@@ -67,8 +111,10 @@
         </textarea>
         <button class="btn btn-outline-secondary" type="button" id="salvarText">Salvar Texto</button>
       </div>
+>>>>>>> e62a860057d441348ffc071764d8c9f97dd192cd
     </div>
   </div>
+
 
   <div class="footer">
     <div class="footerText">
