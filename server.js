@@ -25,4 +25,4 @@ app.post("/extract-text", (req, res) =>{
 });
 //service
 const PORT = 3000 || process.env.PORT;
-app.listen(PORT, () => console.log(`Server ok! Usando a porta: ${PORT}`));
+app.listen(PORT, () => console.log(`Server ok! Acesse: http://localhost:${PORT}/`));

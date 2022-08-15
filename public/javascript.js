@@ -1,4 +1,14 @@
 //Passando a referência dos elentos do HTML
+<<<<<<< HEAD
+=======
+const inputFile = document.getElementById("inputFile");
+const btnUpload = document.getElementById("btnUpload");
+const resultText = document.getElementById("resultText");
+const insertText = document.getElementById("insertText");
+const salvarText = document.getElementById("salvarText");
+
+insertText.value = "";
+>>>>>>> e62a860057d441348ffc071764d8c9f97dd192cd
 
 var pdfInput = document.getElementById("pdf-input")
 var txtInput = document.getElementById("txt-input")
@@ -68,6 +78,7 @@ btnPdfLoad.addEventListener("click", () => {
  */
 btnTxtLoad.addEventListener("click", getResponseTxt)
 
+<<<<<<< HEAD
 async function getResponseTxt() {
   var insertedText = document.getElementById("insert-text").value
   
@@ -109,6 +120,79 @@ btnSave.addEventListener("click", () => {
   
   let data = {
     "texto": insertedText
+=======
+//FAZENDO O POST EM PETICOES - PDF
+salvarPDF.addEventListener("click", async function insert() {
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const init = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({
+          "textoPeticao": texto,
+          "flag": false,
+            "processo": {
+              "valorCausa": 0
+            }
+      }),
+    }
+    const postPeticao = await fetch("http://localhost:8080/peticoes", init)
+    .then(//Esse Then traz a função para realizar a chamada na rota Python logo após a inserção do PDF.
+    async function acionarPython(){
+      try{
+        const response = await fetch('http://localhost:8080/peticoes')//Rota do Python para realizar a Triagem
+        console.log("Acionando o Python! Status code: ", response.status)
+        const data = await response.json()
+        console.log(data)
+      } catch(error){
+        console.error("Erro ao Acionar o Python: ", error)
+      }
+    }
+  ).then(alert("Texto Salvo!"))
+console.log("POST realizado!");
+//document.location.reload();//Remover barras no início para acionar o Reload após salvar!
+  } catch (e) {
+    console.log("Falha ao salvar os dados :: POST " + e)
+  }
+})
+
+//FAZENDO O POST EM PETICOES - TEXTO
+salvarText.addEventListener("click", async function insert() {
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const init = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({
+          "textoPeticao": insertText.value,
+          "flag": false,
+            "processo": {
+              "valorCausa": 0
+            }
+      }),
+    }
+    const postPeticao = await fetch("http://localhost:8080/peticoes", init)      
+      .then(//Esse Then traz a função para realizar a chamada na rota Python logo após a inserção do novo texto.
+        async function acionarPython(){
+          try{
+            const response = await fetch('http://localhost:8080/peticoes')//Rota do Python para realizar a Triagem
+            console.log("Acionando o Python! Status code: ", response.status)
+            const data = await response.json()
+            console.log(data)
+          } catch(error){
+            console.error("Erro ao Acionar o Python: ", error)
+          }
+        }
+      ).then(alert("Texto Salvo!"))
+    console.log("POST realizado!");
+    //document.location.reload();//Remover barras no início para acionar o Reload após salvar!
+  } catch (e) {
+    console.log("Falha ao salvar os dados :: POST " + e)
+>>>>>>> e62a860057d441348ffc071764d8c9f97dd192cd
   }
 
   fetch("http://localhost:5000/test", {

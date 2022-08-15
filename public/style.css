@@ -133,8 +133,30 @@ Inicio
     margin-bottom: 2rem;
 }
 
+<<<<<<< HEAD
 #result-input {
     display: none;
+=======
+#insertText:active {
+    border: 0.15rem solid;
+    border-color: teal;
+    background-color: #d1eefa96;
+    outline: none;
+    transition: 300ms;
+}
+#salvarText {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
+#insertText:focus {
+    border: 0.15rem solid;
+    border-color: teal;
+    background-color: #d1eefa96;
+    outline: none;
+    transition: 300ms;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+>>>>>>> e62a860057d441348ffc071764d8c9f97dd192cd
 }
 
 #result-text {
@@ -173,10 +195,21 @@ Inicio
     opacity: 0;
 }
 
+<<<<<<< HEAD
 
 /*
 Fim
 */
+=======
+#table {
+    font-weight: 700;
+}
+
+.tdTable {
+    padding-right: 2rem;
+}
+
+>>>>>>> e62a860057d441348ffc071764d8c9f97dd192cd
 .footer {
     width: 100%;
     height: 10rem;
