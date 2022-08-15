@@ -2,6 +2,10 @@
 const inputFile = document.getElementById("inputFile");
 const btnUpload = document.getElementById("btnUpload");
 const resultText = document.getElementById("resultText");
+const insertText = document.getElementById("insertText");
+const salvarText = document.getElementById("salvarText");
+
+insertText.value = "";
 
 //Função para carregar o pdf e fazer o parse
 btnUpload.addEventListener("click", () => {
@@ -28,42 +32,8 @@ btnUpload.addEventListener("click", () => {
   
 })
 
-//FAZENDO O GET DE TODOS OS REGISTROS EM PETICOES
-async function findAllPeticoes(){
-    try{
-      const response = await fetch('http://localhost:8080/peticoes')
-      //console.log(response)
-      const data = await response.json()
-      console.log(data)
-      showPeticoes(data)
-    } catch(error){
-      console.error(error)
-    }
-  }
-
-  findAllPeticoes()
-
-  function showPeticoes(peticoes) {
-    let output1 = ''
-    let output2 = ''
-
-    if (peticoes.flag == false){
-      for (let peticao of peticoes){
-        output1 += `<tbody><tr><td>ID: ${peticao.id}</td></tr></tbody>`
-      }
-    }
-    if (peticoes.flag == true){
-      for (let peticao of peticoes){
-        output2 += `<tbody><tr><td>ID: ${peticao.id}</td></tr></tbody>`
-      }
-    }
-
-    document.getElementById('tableFalse').innerHTML = output1
-    document.querySelector('liTrue').innerHTML = output2
-  }
-
-//FAZENDO O POST EM PETICOES
-salvarForm.addEventListener("click", async function insert() {
+//FAZENDO O POST EM PETICOES - PDF
+salvarPDF.addEventListener("click", async function insert() {
   try {
     const headers = {
       "Content-Type": "application/json",
@@ -80,7 +50,57 @@ salvarForm.addEventListener("click", async function insert() {
       }),
     }
     const postPeticao = await fetch("http://localhost:8080/peticoes", init)
+    .then(//Esse Then traz a função para realizar a chamada na rota Python logo após a inserção do PDF.
+    async function acionarPython(){
+      try{
+        const response = await fetch('http://localhost:8080/peticoes')//Rota do Python para realizar a Triagem
+        console.log("Acionando o Python! Status code: ", response.status)
+        const data = await response.json()
+        console.log(data)
+      } catch(error){
+        console.error("Erro ao Acionar o Python: ", error)
+      }
+    }
+  ).then(alert("Texto Salvo!"))
+console.log("POST realizado!");
+//document.location.reload();//Remover barras no início para acionar o Reload após salvar!
+  } catch (e) {
+    console.log("Falha ao salvar os dados :: POST " + e)
+  }
+})
+
+//FAZENDO O POST EM PETICOES - TEXTO
+salvarText.addEventListener("click", async function insert() {
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const init = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({
+          "textoPeticao": insertText.value,
+          "flag": false,
+            "processo": {
+              "valorCausa": 0
+            }
+      }),
+    }
+    const postPeticao = await fetch("http://localhost:8080/peticoes", init)      
+      .then(//Esse Then traz a função para realizar a chamada na rota Python logo após a inserção do novo texto.
+        async function acionarPython(){
+          try{
+            const response = await fetch('http://localhost:8080/peticoes')//Rota do Python para realizar a Triagem
+            console.log("Acionando o Python! Status code: ", response.status)
+            const data = await response.json()
+            console.log(data)
+          } catch(error){
+            console.error("Erro ao Acionar o Python: ", error)
+          }
+        }
+      ).then(alert("Texto Salvo!"))
     console.log("POST realizado!");
+    //document.location.reload();//Remover barras no início para acionar o Reload após salvar!
   } catch (e) {
     console.log("Falha ao salvar os dados :: POST " + e)
   }

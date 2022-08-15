@@ -120,6 +120,10 @@ nav {
     outline: none;
     transition: 300ms;
 }
+#salvarText {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
 
 #insertText:focus {
     border: 0.15rem solid;
@@ -161,6 +165,14 @@ nav {
     outline: none;
     transition: 300ms;
     box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+}
+
+#table {
+    font-weight: 700;
+}
+
+.tdTable {
+    padding-right: 2rem;
 }
 
 .footer {
