@@ -27,8 +27,6 @@
   </ul>
   </nav>
 
-  <main>Está em Home</main>
-
   <div class="container">
 
     <div class="principal">
@@ -41,33 +39,34 @@
         <h5>Selecione um arquivo PDF</h5>
         <div class="input-group mb-3">
           <button class="btn btn-outline-secondary" type="button" id="btnUpload">1 - Carregar</button>
-          <button class="btn btn-outline-secondary" type="button" id="salvarForm">2 - Salvar</button>
+          <button class="btn btn-outline-secondary" type="button" id="salvarPDF">2 - Salvar</button>
           <input type="file" class="form-control" id="inputFile" aria-describedby="inputFile" aria-label="Upload">
         </div>
-      </div>
-
-      <div class="textInsert">
-        <h5>Cole o texto da Petição Inicial</h5>
-        <textarea
-          id="insertText"
-          value=" "
-          class="field left"
-          placeholder="Cole aqui o texto de sua petição inicial..."
-          cols="50"
-          rows="10">
-        </textarea>
       </div>
 
       <h5>Texto para Consulta:</h5>
       <textarea
         id="resultText"
-        value=" "
+        value=""
         class="field left"
         placeholder="Seu arquivo PDF será exibido aqui..."
         cols="50"
         rows="10"
         readonly
       ></textarea>
+
+      <div class="textInsert">
+        <h5>Cole o texto da Petição Inicial:</h5>
+        <textarea
+          id="insertText"
+          value=""
+          class="field left"
+          placeholder="Cole aqui o texto de sua petição inicial..."
+          cols="50"
+          rows="10">
+        </textarea>
+        <button class="btn btn-outline-secondary" type="button" id="salvarText">Salvar Texto</button>
+      </div>
     </div>
   </div>
 
