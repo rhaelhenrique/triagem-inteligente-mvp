@@ -1,8 +1,12 @@
-const cors = require('cors')
+const cors = require('cors');
+const { response } = require('express');
 const express = require('express')
 const fileupload = require("express-fileupload")
 const pdfparse = require('pdf-parse')
 const app = express();
+
+const url = "http://localhost:8080/peticoes"
+//BKP "https://triagemhomol.jfpe.jus.br/peticoes"
 
 app.use(cors())
 
